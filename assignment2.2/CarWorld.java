@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
+import java.net.URL;
 
 class CarWorld extends JPanel {
 
@@ -18,11 +19,15 @@ class CarWorld extends JPanel {
         MediaTracker mt = new MediaTracker(this);
 	Toolkit toolkit = Toolkit.getDefaultToolkit();
 
-        redCar = toolkit.getImage("image/redcar.gif");
+        URL redCarUrl = CarWorld.class.getResource("image/redcar.gif");
+        URL blueCarUrl = CarWorld.class.getResource("image/bluecar.gif");
+        URL bridgeUrl = CarWorld.class.getResource("image/bridge1.gif");
+
+        redCar = toolkit.getImage(redCarUrl);
         mt.addImage(redCar, 0);
-        blueCar = toolkit.getImage("image/bluecar.gif");
+        blueCar = toolkit.getImage(blueCarUrl);
         mt.addImage(blueCar, 1);
-        bridge = toolkit.getImage("image/bridge1.gif");
+        bridge = toolkit.getImage(bridgeUrl);
         mt.addImage(bridge, 2);
 
         try {
