@@ -115,7 +115,7 @@ public class FrequencyCount {
 
         // *** MODIFIED ***
         // Create a fixed thread pool to manage client connections
-        ExecutorService pool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         // Create a Future list to hold the results from each thread
         List<Future<Counter>> futures = new ArrayList<>();
 
@@ -136,7 +136,7 @@ public class FrequencyCount {
                         return localCounter;
                     };
                     // Submit the task and store its Future
-                    futures.add(pool.submit(task));
+                    futures.add(threadPool.submit(task));
                 }
             }
         } catch (IOException e) {
@@ -144,7 +144,7 @@ public class FrequencyCount {
         }
 
         Counter finalCounter = new Counter();
-        pool.shutdown();
+        threadPool.shutdown();
 
         // Wait for all tasks to complete and merge their results
         for (Future<Counter> f : futures) {
