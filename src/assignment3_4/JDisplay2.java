@@ -1,3 +1,5 @@
+package assignment3_4;
+
 public class JDisplay2 implements HighLevelDisplay {
 
     private JDisplay d;
@@ -35,19 +37,19 @@ public class JDisplay2 implements HighLevelDisplay {
 	
     }
 
-    public synchronized void clear() {
+    public void clear() {
 	for(int i=0; i < d.getRows(); i++)
 	    updateRow(i,"");
 	usedRows = 0;
     }
 
-    public synchronized void addRow(String str) {
+    public void addRow(String str) {
 	updateRow(usedRows,str);
 	flashRow(usedRows,1000);
 	usedRows++;
     }
 
-    public synchronized void deleteRow(int row) {
+    public void deleteRow(int row) {
 	if (row < usedRows) {
 	    for(int i = row+1; i < usedRows; i++)
 		updateRow(i-1,text[i]);

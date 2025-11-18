@@ -1,3 +1,5 @@
+package assignment3_4;
+
 public interface HWDisplay {
     public int getRows();
     public int getCols();

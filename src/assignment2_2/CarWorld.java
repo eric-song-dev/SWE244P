@@ -1,3 +1,5 @@
+package assignment2_2;
+
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;

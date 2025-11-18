@@ -1,4 +1,4 @@
-import java.util.concurrent.*;
+package assignment2_1;
 
 public class Main3 {
 
@@ -11,6 +11,7 @@ public class Main3 {
     }
 
     private static void addProc(HighLevelDisplay d) {
+        // *** MODIFIED ***
         for (int i = 0; i < 20; i++) {
             d.addRow("FLIGHT " + i);
             nap(500);
@@ -19,6 +20,7 @@ public class Main3 {
     }
 
     private static void deleteProc(HighLevelDisplay d) {
+        // *** MODIFIED ***
         for (int i = 0; i < 20; i++) {
             d.deleteRow(0);
             nap(500);

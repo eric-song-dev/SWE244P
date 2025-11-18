@@ -1,3 +1,5 @@
+package assignment2_1;
+
 public interface HighLevelDisplay {
 
     public void clear();

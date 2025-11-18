@@ -1,3 +1,5 @@
+package assignment2_2;
+
 public class TrafficController {
 
     // number of red cars on the bridge from left to right
@@ -5,6 +7,7 @@ public class TrafficController {
     // number of blue cars on the bridge from right to left
     private int blueCarsOnBridge = 0;
 
+    // *** MODIFIED ***
     public synchronized void enterLeft() {
         // wait as long as there are blue cars on the bridge
         while (blueCarsOnBridge > 0) {

@@ -1,3 +1,5 @@
+package assignment1;
+
 import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
