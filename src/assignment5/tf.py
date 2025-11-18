@@ -2,13 +2,21 @@
 import re, collections, glob, time
 from concurrent.futures import ThreadPoolExecutor
 
-stopwords = set(open('stop_words').read().split(','))
+try:
+    stopwords = set(open('stop_words').read().split(','))
+except FileNotFoundError:
+    print("Error: stop_words not found")
+    exit(1)
 
 def count_words_in_file(filepath):
     # This function runs in a separate thread for each file
-    with open(filepath, encoding='utf-8') as f:
-        words = re.findall(r'\w{3,}', f.read().lower())
-    return collections.Counter(w for w in words if w not in stopwords)
+    try:
+        with open(filepath, encoding='utf-8') as f:
+            words = re.findall(r'\w{3,}', f.read().lower())
+        return collections.Counter(w for w in words if w not in stopwords)
+    except Exception as e:
+        print(f"Error: skip {filepath} due to error: {e}")
+        return collections.Counter()
 
 start = time.time()
 
