@@ -146,7 +146,7 @@ public class FrequencyCount {
         Counter finalCounter = new Counter();
         pool.shutdown();
 
-        // Wait for all tasks to complete and merge their results)
+        // Wait for all tasks to complete and merge their results
         for (Future<Counter> f : futures) {
             try {
                 finalCounter.merge(f.get());
